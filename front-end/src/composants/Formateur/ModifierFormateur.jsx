@@ -12,6 +12,7 @@ export default function ModifierFormateur() {
     const [emailedu , setEmailEdu] = useState('')
     const [email , setEmail] = useState('')
     const [tel , setTel] = useState()
+    const [sexe , setSexe] = useState()
     
 
   const [infoformateur , setInfoFormateur] = useState([])
@@ -30,6 +31,7 @@ export default function ModifierFormateur() {
               setEmailEdu(res.data[0].Email_Edu)
               setEmail(res.data[0].Email)
               setTel(res.data[0].Tel)
+              setSexe(res.data[0].Sexe)
           }
         })
         .catch(({response : res})=>{
@@ -53,6 +55,7 @@ export default function ModifierFormateur() {
     formData.append('_method' , 'PATCH')
     formData.append('Matricule' , matricule)
     formData.append('Nom_Prenom' , nom)
+    formData.append('Sexe' , sexe)
     formData.append('Email_Edu' , emailedu)
     formData.append('Email' , email !== null ? email : null)
     formData.append('Tel', tel !== null ? tel : null);
@@ -87,6 +90,13 @@ export default function ModifierFormateur() {
           <br />
           <label >Email Edu : </label>
           <input type="text" onChange={(e)=>setEmailEdu(e.target.value)} value={emailedu} name='Email_Edu'/>
+          <br />
+          <label >Sexe : </label>
+          <select onChange={(e)=>setSexe(e.target.value)} value={sexe} name='Sexe'>
+            <option value="">Choisir le sexe</option>
+            <option value="F">Femme</option>
+            <option value="H">Homme</option>
+          </select>
           <br />
           <label >Email : </label>
           <input type="text" onChange={(e)=>setEmail(e.target.value)} value={email} name='Email' />

@@ -69,6 +69,14 @@ export default function Saidbar() {
                 <span>Formateurs</span>
               </Link>
             </li>
+            <li id="li-nv">
+              <Link id="nv-link" to="/addElement">
+                <span id="i-ts">
+                  <FaChalkboardTeacher />
+                </span>
+                <span>Microservice</span>
+              </Link>
+            </li>
             {/* <li id="li-nv">
               <Link id="nv-link" to="/osl">
                 <span id="i-ts">

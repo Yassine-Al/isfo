@@ -12,6 +12,8 @@ import AjouterFormateur from "./Formateur/AjouterFormateur";
 import InfoFormateur from "./Formateur/InfoFormateur";
 import ModifierFormateur from "./Formateur/ModifierFormateur";
 import ListStagiaireParGroupe from "./Groupes/ListStagiaireParGroupe";
+import InfoGroupe from "./Groupes/InfoGroupe";
+import AjouterElement from "./Microservice/AjouterElement";
 
 function App() {
   return (
@@ -29,6 +31,9 @@ function App() {
           <Route path="/Modifier_Formateur/:id" element={<ModifierFormateur/>} />
           <Route path="/Info_Formateur/:id" element={<InfoFormateur/>} />
           <Route path="/ListStagiaireParGroup/:id" element={<ListStagiaireParGroupe/>} />
+          <Route path="/InfoGroup/:id" element={<InfoGroupe/>} />
+
+          <Route path="/addElement" element={<AjouterElement/>} />
         </Routes>
       </BrowserRouter>
     </div>

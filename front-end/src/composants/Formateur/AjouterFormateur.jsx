@@ -6,8 +6,11 @@ export default function AjouterFormateur() {
   const [matricule , setMatricule] = useState()
   const [nom , setNom] = useState()
   const [emailedu , setEmailEdu] = useState()
+  const [sexe , setSexe] = useState('')
   const [email , setEmail] = useState()
   const [tel , setTel] = useState()
+
+  console.log(sexe)
 
   const navigate = useNavigate()
 
@@ -16,9 +19,12 @@ export default function AjouterFormateur() {
     const formData = new FormData()
     formData.append('Matricule' , matricule)
     formData.append('Nom_Prenom' , nom)
+    formData.append('Sexe' , sexe)
     formData.append('Email_Edu' , email)
     formData.append('Email' , email)
     formData.append('Tel' , email)
+
+    console.log(formData)
 
     await axios.post('http://localhost:8000/api/formateur', formData)
     .then(({data})=>{
@@ -34,7 +40,7 @@ export default function AjouterFormateur() {
           console.log(response.data.message)
         }
     })
-    navigate('/Liste_Formateur')
+    // navigate('/Liste_Formateur')
     }
 
   return (
@@ -50,6 +56,13 @@ export default function AjouterFormateur() {
           <br />
           <label >Email Edu : </label>
           <input type="text" onChange={(e)=>setEmailEdu(e.target.value)} value={emailedu} />
+          <br />
+          <label >Sexe : </label>
+          <select onChange={(e)=>setSexe(e.target.value)} value={sexe}>
+            <option value="">Choisir le sexe</option>
+            <option value="F">Femme</option>
+            <option value="H">Homme</option>
+          </select>
           <br />
           <label >Email : </label>
           <input type="text" onChange={(e)=>setEmail(e.target.value)} value={email} />

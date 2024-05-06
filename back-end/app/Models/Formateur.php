@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Formateur extends Model
 {
     use HasFactory;
-    protected $fillable = ['Matricule', 'Nom_Prenom', 'Email_Edu'];
+    protected $fillable = ['Matricule', 'Nom_Prenom', 'Sexe','Email_Edu'];
 
     public $timestamps = false;
 }

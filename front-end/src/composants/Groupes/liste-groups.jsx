@@ -30,7 +30,7 @@ export default function ListeGroups() {
               {
                 data.map(grp => {
                   return <li>
-                    <Link to={`/ListStagiaireParGroup/${grp.id}`}>
+                    <Link to={`/InfoGroup/${grp.id}`}>
                       {grp.Id_Groupe}
                     </Link>
                     </li>

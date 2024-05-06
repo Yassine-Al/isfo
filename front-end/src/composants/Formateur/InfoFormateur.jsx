@@ -39,7 +39,7 @@ export default function InfoFormateur() {
             <p>Nom et Prenom <span>{infoformateur[0].Nom_Prenom}</span></p>
             <p>Email Edu <span>{infoformateur[0].Email_Edu}</span></p>
             <p>Email <span>{infoformateur[0].Email}</span></p>
-            <p>Tel <span>{infoformateur[0].Tel}</span></p>
+            <p>Tel : <span>0{infoformateur[0].Tel}</span></p>
         
             <hr />
             <div>

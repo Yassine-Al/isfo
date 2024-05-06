@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\FormateurController;
+use App\Http\Controllers\GMFController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GroupeController;
+use App\Http\Controllers\ModuleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +39,9 @@ Route::get('/groupes/spec', [GroupeController::class, 'spec'])->name('spec');
 // Recuperer les stagiaires par leur groupe
 
 Route::get('/stagiaire/groupe/{id}', [GroupeController::class , 'StagiaireGroupe']);
+
+
+
+// Route Pour afficher les modules dans le partie Groupes
+
+Route::resource('/module' , GMFController::class);

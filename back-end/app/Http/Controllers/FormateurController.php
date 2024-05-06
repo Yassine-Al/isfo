@@ -13,8 +13,10 @@ class FormateurController extends Controller
      */
     public function index()
     {
-        $formateurs = Formateur::all();
-        return $formateurs;
+        $formateurHomme = DB::table('formateurs')->where('sexe','H')->get();
+        $formateurFemme = DB::table('formateurs')->where('sexe','F')->get();
+        $formateurFNull = DB::table('formateurs')->where('sexe',Null)->get();
+        return [$formateurHomme, $formateurFemme, $formateurFNull];
     }
 
     /**
@@ -58,24 +60,26 @@ class FormateurController extends Controller
      */
     public function update(Request $request, Formateur $formateur)
     {
-        // $updateFormateur = DB::table('formateurs')
-        //                         ->where('id', $formateur->id)
-        //                         ->update([
-        //                             'Matricule' => $request->Matricule,
-        //                             'Nom_Prenom' => $request->Nom_Prenom,
-        //                             'Email_Edu' => $request->Email_Edu,
-        //                             'Email' => $request->Email,
-        //                             'Tel' => $request->Tel,
-        //                         ]);
+        $updateFormateur = DB::table('formateurs')
+                                ->where('id', $formateur->id)
+                                ->update([
+                                    'Matricule' => $request->Matricule,
+                                    'Nom_Prenom' => $request->Nom_Prenom,
+                                    'Sexe' => $request->Sexe,
+                                    'Email_Edu' => $request->Email_Edu,
+                                    'Email' => $request->Email,
+                                    'Tel' => $request->Tel,
+                                ]);
 
-        $formateur->Matricule = $request->Matricule;
-        $formateur->Nom_Prenom = $request->Nom_Prenom;
-        $formateur->Email_Edu = $request->Email_Edu;
-        $formateur->Email = $request->Email ;
-        $formateur->Tel = $request->Tel ;
-        $formateur->save();
+        // $formateur->Matricule = $request->Matricule;
+        // $formateur->Nom_Prenom = $request->Nom_Prenom;
+        // $formateur->Sexe = $request->Sexe;
+        // $formateur->Email_Edu = $request->Email_Edu;
+        // $formateur->Email = $request->Email ;
+        // $formateur->Tel = $request->Tel ;
+        // $formateur->save();
 
-            return $formateur;
+            return $updateFormateur;
     }
 
     /**

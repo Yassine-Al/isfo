@@ -38,7 +38,7 @@ class GroupeController extends Controller
      */
     public function show(Groupe $groupe)
     {
-        //
+        return $groupe;
     }
 
     /**
